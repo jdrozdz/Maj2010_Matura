@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="algorytm1">obrazki/algorytm1.png</file>
+    </qresource>
+</RCC>

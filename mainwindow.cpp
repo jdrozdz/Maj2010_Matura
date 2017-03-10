@@ -57,18 +57,18 @@ void MainWindow::on_pushButton_2_clicked()
     }
 
     if(licznik == 2 && zamek == 1){
-        (ui->checkBox->isChecked()) ? pkt_tmp++ : 0;
-        (!ui->checkBox_2->isChecked()) ? pkt_tmp++ : 0;
-        (!ui->checkBox_3->isChecked()) ? pkt_tmp++ : 0;
+        (!ui->checkBox->isChecked()) ? pkt_tmp++ : 0;
+        (ui->checkBox_2->isChecked()) ? pkt_tmp++ : 0;
+        (ui->checkBox_3->isChecked()) ? pkt_tmp++ : 0;
         licznik++;
         pkt += pkt_tmp;
         zamek = 0;
     }
 
     if(licznik == 3 && zamek == 1){
-        (!ui->checkBox->isChecked()) ? pkt_tmp++ : 0;
-        (ui->checkBox_2->isChecked()) ? pkt_tmp++ : 0;
-        (ui->checkBox_3->isChecked()) ? pkt_tmp++ : 0;
+        (ui->checkBox->isChecked()) ? pkt_tmp++ : 0;
+        (!ui->checkBox_2->isChecked()) ? pkt_tmp++ : 0;
+        (!ui->checkBox_3->isChecked()) ? pkt_tmp++ : 0;
         licznik++;
         pkt += pkt_tmp;
         zamek = 0;
@@ -128,6 +128,17 @@ void MainWindow::on_pushButton_2_clicked()
             ui->checkBox_3->setText("GIF");
 
             zamek = 1;
+        }
+
+        if(licznik > 4){
+            QString wiedza = "";
+            if(pkt >= 12 ) wiedza = "Bardzo dobry";
+            if(pkt >= 9 && pkt < 12) wiedza = "dobry";
+            if(pkt >= 3 && pkt < 9) wiedza = "słaby";
+            if(pkt < 3) wiedza = "bardzo słaby";
+
+            QMessageBox::information(this, "Ocena", QString("Twoja liczba punktów to %1\nTwój zasób wiedzy jest %2").arg(pkt).arg(wiedza) );
+            this->close();
         }
 
 

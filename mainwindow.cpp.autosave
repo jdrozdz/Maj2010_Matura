@@ -129,6 +129,10 @@ void MainWindow::on_pushButton_2_clicked()
 
             zamek = 1;
         }
+        
+        if(licznik > 4){
+            QMessageBox::information(this, "Ocena")
+        }
 
 
     }else{
